@@ -1206,7 +1206,7 @@ const Dashboard = ({ isGuest, discoveredDevices = [], roomsData, setRoomsData, u
 
   const fetchRoomMap = async () => {
     const roomMap = {};
-    const snapshot = await getDocs(collection(db, "web_relays", deviceId, "relays"));
+    const snapshot = await getDocs(collection(db, "relays", deviceId, "relays"));
     snapshot.forEach(doc => {
       roomMap[doc.id] = doc.data().relays || [];
     });
@@ -1290,20 +1290,43 @@ const Dashboard = ({ isGuest, discoveredDevices = [], roomsData, setRoomsData, u
       return;
     }
     
-    const roomDoc = doc(db, "web_relays", deviceId, "relays", selectedRoom);
+    const roomDoc = doc(db, "relays", deviceId, "relays", selectedRoom);
     await setDoc(roomDoc, { relays: selected });
     setRelays(prev => ({ ...prev, [selectedRoom]: selected }));
     setOpenDialog(false);
     showToast(`Room "${selectedRoom}" ${relays[selectedRoom] ? 'updated' : 'created'} successfully`, 'success');
+
+    // Also update roomsData if setRoomsData is provided
+    if (setRoomsData) {
+      setRoomsData(prev => ({
+        ...prev,
+        [selectedRoom]: {
+          ...(prev[selectedRoom] || {}),
+          devices: selected.map(relay => ({
+            name: relay,
+            status: relayStates[relay] === "ON"
+          }))
+        }
+      }));
+    }
   };
 
   const deleteRoom = async () => {
-    const docRef = doc(db, "web_relays", deviceId, "relays", roomOptionsRoom);
+    const docRef = doc(db, "relays", deviceId, "relays", roomOptionsRoom);
     await deleteDoc(docRef);
     const updated = { ...relays };
     delete updated[roomOptionsRoom];
     setRelays(updated);
     setAnchorEl(null);
+
+    // Also update roomsData if setRoomsData is provided
+    if (setRoomsData) {
+      setRoomsData(prev => {
+        const newRooms = { ...prev };
+        delete newRooms[roomOptionsRoom];
+        return newRooms;
+      });
+    }
   };
 
   // Update energy data when view changes
