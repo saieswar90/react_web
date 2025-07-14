@@ -1,0 +1,75 @@
+{
+  "homepage": "https://preethi-1024.github.io/smarthome",
+  "name": "smart-home-dashboard",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@emotion/react": "^11.11.4",
+    "@emotion/styled": "^11.11.0",
+    "@fontsource/poppins": "^5.2.6",
+    "@mui/icons-material": "^5.17.1",
+    "@mui/material": "^5.15.12",
+    "@mui/system": "^5.15.12",
+    "@mui/x-date-pickers": "^6.19.7",
+    "@tsparticles/react": "^3.0.0",
+    "@tsparticles/slim": "^3.8.1",
+    "axios": "^1.9.0",
+    "date-fns": "^2.30.0",
+    "firebase": "^11.8.1",
+    "framer-motion": "^12.12.1",
+    "i18next": "^25.2.0",
+    "i18next-browser-languagedetector": "^8.1.0",
+    "mqtt": "^5.13.1",
+    "qrcode.react": "^4.2.0",
+    "react": "^18.2.0",
+    "react-circular-progressbar": "^2.2.0",
+    "react-dom": "^18.2.0",
+    "react-hot-toast": "^2.5.2",
+    "react-i18next": "^15.5.2",
+    "react-icons": "^5.5.0",
+    "react-router-dom": "^7.6.0",
+    "react-scripts": "^5.0.1",
+    "react-spring": "^10.0.0",
+    "react-toastify": "^11.0.5",
+    "react-tsparticles": "^2.12.2",
+    "recharts": "^2.15.3",
+    "tsparticles": "^3.8.1"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
+    "tailwind": "tailwindcss -i ./src/tailwind.css -o ./src/index.css --watch"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@tailwindcss/forms": "^0.5.10",
+    "@typescript-eslint/eslint-plugin": "^8.32.1",
+    "@typescript-eslint/parser": "^8.32.1",
+    "autoprefixer": "^10.4.21",
+    "gh-pages": "^6.3.0",
+    "markdown-pdf": "^11.0.0",
+    "postcss": "^8.5.3",
+    "tailwindcss": "^4.1.7",
+    "typescript": "^4.9.5"
+  }
+}

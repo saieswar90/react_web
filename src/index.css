@@ -1,0 +1,127 @@
+/* Add custom animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: .5;
+  }
+}
+
+/* Modern UI Components */
+.modern-card {
+  @apply bg-white rounded-xl shadow-lg transition-all duration-300 hover:shadow-xl;
+}
+
+.modern-button {
+  @apply px-4 py-2 rounded-lg font-medium transition-all duration-200 
+         hover:shadow-md active:scale-95 focus:outline-none focus:ring-2 focus:ring-offset-2;
+}
+
+.modern-input {
+  @apply w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 
+         focus:ring-blue-500 focus:border-transparent transition-all duration-200;
+}
+
+.modern-select {
+  @apply w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 
+         focus:ring-blue-500 focus:border-transparent transition-all duration-200;
+}
+
+/* Animation Classes */
+.animate-fade-in {
+  animation: fadeIn 0.3s ease-in-out forwards;
+}
+
+.animate-slide-up {
+  animation: slideUp 0.3s ease-in-out forwards;
+}
+
+.animate-slide-down {
+  animation: slideDown 0.3s ease-in-out forwards;
+}
+
+.animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Enhanced Room Card */
+.room-card {
+  @apply bg-white rounded-xl shadow-md p-4 transition-all duration-300;
+}
+
+.room-card:hover {
+  @apply transform -translate-y-1 shadow-xl;
+}
+
+/* Glass Effect */
+.glass-effect {
+  @apply bg-white bg-opacity-20 backdrop-blur-lg border border-white border-opacity-30;
+}
+
+/* Gradient Text */
+.gradient-text {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-purple-500;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-gray-100 rounded-full;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-gray-400 rounded-full hover:bg-gray-500 transition-colors duration-200;
+}
+
+body, #root {
+  background: #181a20; /* or your dashboard's main background color */
+  min-height: 100vh;
+  min-width: 100vw;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Optionally, ensure html also stretches */
+html {
+  min-height: 100vh;
+  min-width: 100vw;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
